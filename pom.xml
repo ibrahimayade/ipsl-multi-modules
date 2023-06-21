@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>sn.ipsl.personne</groupId>
+    <artifactId>ipsl-multi-modules</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Root App</name>
+    <packaging>pom</packaging>
+    <modules>
+        <module>persistence</module>
+        <module>dao</module>
+        <module>metier</module>
+        <module>web</module>
+        <module>serivce/smsManager</module>
+        <module>serivce/mailSender</module>
+    </modules>
+
+    <properties>
+        <spring.version>4.1.0.RELEASE</spring.version>
+        <skip.deploy.tomcat>true</skip.deploy.tomcat>
+        <maven.test.skip>false</maven.test.skip>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+        <hibernate.version>5.3.6.Final</hibernate.version>
+    </properties>
+    <build>
+        <finalName>ipsl-multi-modules</finalName>
+   <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.12.1</version>
+                    <configuration>
+                        <locales>fr</locales>
+                    </configuration>
+                </plugin>
+                
+            </plugins>
+
+        </pluginManagement>
+    </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>1.0.2.Final</version>
+                <scope>compile</scope>
+
+            </dependency>
+           
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxws</artifactId>
+                <version>3.0.1</version>
+            </dependency>
+
+            <!-- JUNIT -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- Mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.18</version>
+                <scope>compile</scope>
+            </dependency>
+            <!-- DBCP -->
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>1.4</version>
+                <scope>compile</scope>
+            </dependency>
+            <!--Mail-->
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <organization>
+        <name>Insitut Politechnique de Saint Louis</name>
+        <url>http://www.ipsl.edu</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>iyade</id>
+            <name>Ibrahima YADE </name>
+            <email>yad.ibrahim@gmail.com</email>
+            <roles>
+                <role>Chef de projet</role>
+            </roles>
+            <timezone>+0</timezone>
+        </developer>
+    </developers>
+</project>

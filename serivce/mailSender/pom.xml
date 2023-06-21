@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>sn.ipsl.personne</groupId>
+    <artifactId>mvc-personnes-02</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+         <relativePath>../../pom.xml</relativePath>
+    </parent>
+    <groupId>sn.ipsl.personne</groupId>
+    <artifactId>mailSender</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>IPSL Mail Sender</name>
+
+
+    <properties>
+        <spring.version>4.0.1.RELEASE</spring.version>
+    </properties>
+
+    <build>
+        <finalName>ipsl_mail_sender</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <!-- persistence_modele -->
+        <!--<dependency>
+            <groupId>sn.ipsl.personne</groupId>
+            <artifactId>personne_modele</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>-->
+
+        <!-- Java Mail API -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-javamail_1.4_spec</artifactId>
+            <version>1.7.1</version>
+        </dependency>
+
+    </dependencies>
+</project>
